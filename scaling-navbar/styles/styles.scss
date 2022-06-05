@@ -1,0 +1,137 @@
+// General Properties
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root {
+    --white: #f9f9f9;
+    --colornavbar: #252525;
+    --colorbg: #38393a;
+    --colorhover: #8e9192;
+    --line: #5b9bcc;
+}
+
+.light-mode {
+    --white: #f9f9f9;
+    --colornavbar: #252525;
+    --colorbg: #b4b8bb;
+    --colorhover: #8e9192;
+    --line: #5b9bcc;
+}
+
+body {
+    background-color: var(--colorbg);
+    font-family: "Poppins", sans-serif;
+}
+
+.space {
+    padding-top: 8rem;
+}
+
+
+// Navbar
+.header {
+    background-color: var(--colornavbar);
+    position: fixed; // dont use sticky
+    top: 0;
+    width: 100%;
+    border-bottom: 4px solid var(--line);
+}
+
+.logo {
+    display: inline-block;
+    padding: .5rem;
+    color: var(--white);
+    font-size: 40px;
+    margin-left: 12px;
+    span {
+        position: fixed;
+        margin-top: .9rem;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    img {
+        height: 30px;
+        border-radius: 0%;
+        padding-right: 1rem;
+    }
+}
+
+.nav {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: var(--colornavbar);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+    .menu {
+        padding-right: 1.1rem;
+    }
+}
+
+.menu a {
+    display: block;
+    padding: 25px 20px;
+    color: var(--white);
+}
+
+.menu a:hover {
+    background-color: transparent;
+    color: var(--colorhover);
+}
+
+// Navbar: Mobile menu icon, behaviour
+.mobile-menu {
+    cursor: pointer;
+    float: right;
+    padding: 26px 20px;
+    color: var(--white);
+}
+
+.use-side-menu {
+    display: none;
+}
+
+.use-side-menu:checked ~ nav {
+    max-height: 40%;
+    border-bottom: 4px solid var(--line);
+}
+
+// Navbar: Width switching
+@media (min-width: 768px) {
+    .nav {
+        max-height: none;
+        top: 0;
+        position: relative;
+        float: right;
+        width: fit-content;
+        background-color: transparent;
+    }
+    .menu li {
+        float: left;  // same line, from L->R, right would be R->L
+    }
+    .menu a:hover {
+        background-color: transparent;
+        color: var(--colorhover);
+    } 
+    .mobile-menu {
+        display: none;
+    }
+    .use-side-menu:checked ~ nav {
+        border-bottom: 0px solid var(--line);  // fix border overlap when active
+    }
+}
+
+
+// Text content (Testing - add #01 to link for id)
+.container {
+    padding-top: 8rem;
+    p {
+        padding: 0rem 2rem;
+    }
+}
